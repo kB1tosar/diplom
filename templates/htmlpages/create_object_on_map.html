@@ -1,0 +1,37 @@
+{% extends 'htmlpages/wrapper.html' %}
+{% load leaflet_tags %}
+{% leaflet_css plugins="forms" %}
+{% leaflet_js plugins="forms" %}
+
+{% block content %}
+    <div class="center indents">
+            <a href='#' id='export'>Export Features</a>
+        <div id="map" style="width: 750px; height: 550px;">
+            <div id='delete'>Delete Features</div>
+
+            {% load static %}
+            {#               <img src="{% static 'pictures/' %}"  class="img-thumbnail">#}
+        </div>
+        <script type="text/javascript" src="{% static 'js/test2.js' %}"></script>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="#" type="button" class="btn btn-light disabled">Сортировать
+                по</a>
+            {#Кнопки для выбора в каком порядке сортировать имеющиеся блоги/публикации            #}
+            <a href="" type="button" class="btn btn-info">Автор</a>
+            <a href="" type="button" class="btn btn-dark">Время</a>
+        </div>
+        {#Вывод всех имеющихся статей    #}
+        {% for post in article_list %}
+            <div class="list-group">
+                <a href="{% url 'sourcecode:full_description' pk=post.id %}"
+                   class="list-group-item list-group-item-action flex-column align-items-start">
+
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ post.article_name }}</h5>
+                        <p></p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

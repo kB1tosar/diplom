@@ -1,0 +1,51 @@
+{% extends "htmlpages/wrapper.html" %}
+{#Начальная страница сайта#}
+{% block content %}
+    <title>Главная</title>
+    <div class="center indents">
+        <div class="banner-visible-area style-scope ytd-c4-tabbed-header-renderer">
+            <div id="banner-editor" class="style-scope ytd-c4-tabbed-header-renderer">
+                <h1>Карта Сталинграда</h1>
+                <h2>Выберите карту</h2>
+                <div class="btn-group dropright">
+                  <button type="button" class="btn btn-secondary">
+                    Split dropright
+                  </button>
+
+                  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropright</span>
+                  </button>
+                  <div class="dropdown-menu">
+                      {% for map in map_list %}
+                          <a class="dropdown-item" id="map-canvas" data-place="{{ map.map_name }}" href="#">{{ map.map_name}}</a>
+                      {% endfor %}
+                  </div>
+                </div>
+                <div id="mapid" style="width: 750px; height: 550px;">
+                {% load static %}
+{#                <img src="{% static 'pictures/' %}"  class="img-thumbnail">#}
+                </div>
+                <script src="{% static 'js/testmap.js' %}"></script>
+            </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="#" type="button" class="btn btn-light disabled">Сортировать по</a>
+{#Кнопки для выбора в каком порядке сортировать имеющиеся блоги/публикации            #}
+            <a href="" type="button" class="btn btn-info">Автор</a>
+            <a href="" type="button" class="btn btn-dark">Время</a>
+        </div>
+{#Вывод всех имеющихся статей    #}
+        {% for post in article_list %}
+            <div class="list-group">
+                <a href="{% url 'sourcecode:full_description' pk=post.id %}"
+                   class="list-group-item list-group-item-action flex-column align-items-start">
+
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ post.article_name }}</h5>
+                        <p></p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'htmlpages/wrapper.html' %}
+
+{% block content %}
+    <title>{{ full_article.article_name }}</title>
+    <div class="center indents">
+{#Вывод всех параметров статей    #}
+        <h1>{{ full_article.article_name }}
+            <a href="{% url 'sourcecode:article_edit' pk=full_article.id %}" class="btn btn-info" >редактировать</a>
+            <a href="{% url 'sourcecode:article_delete' pk=full_article.id %}" class= "btn btn-warning">удалить</a>
+        </h1>
+        <h5>{{full_article.construction_objects.name}} Название объекта {{ full_article.construction_object_name }}</h5>
+        <img src="{{MEDIA_URL}}{{full_article.construction_image.url}} " class="rounded float-left img_constrution">
+        <p>{{ full_article.descriptions }}</p>
+    </div>
+{% endblock %}

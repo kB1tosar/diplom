@@ -1,0 +1,47 @@
+body{
+    margin-top: 0;
+}
+
+.footer {
+    bottom: 0;
+    margin-top: 50px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+}
+
+.center {
+    padding-left: 250px;
+    padding-right: 250px;
+}
+
+.indents {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.scro11up {
+    width:40px;
+    height:40px;
+    opacity:0.3;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display:none;
+    text-indent:-9999px;
+    background: wheat url("/sitemy/static/sitemy/Image/icon_top.png") no-repeat;
+}
+
+.back_title{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: seashell;
+}
+
+.img_constrution{
+    width:750px;
+    height:550px;
+}

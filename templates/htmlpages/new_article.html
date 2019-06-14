@@ -1,0 +1,20 @@
+{% extends 'htmlpages/wrapper.html' %}
+
+{% block content %}
+    <title>Добавление статьи</title>
+    <div class="center indents">
+        <h1>Новая статья</h1>
+            <form method="post" action="" enctype="multipart/form-data">
+                {% for field in form_article %}
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ field.media }}
+                        {{ field.errors }}
+                        {{ field.label_tag }}
+                        {{ field }}
+                    </div>
+                {% endfor %}
+                <input class="btn btn-warning" type="submit" value="Создать блог" name="add_data">
+            </form>
+    </div>
+{% endblock %}
